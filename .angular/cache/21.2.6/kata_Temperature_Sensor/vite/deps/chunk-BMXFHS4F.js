@@ -6,7 +6,7 @@ import {
   parseCookieValue,
   setRootDomAdapter,
   withHttpTransferCache
-} from "./chunk-OFTMQ4J5.js";
+} from "./chunk-MYBSLVD2.js";
 import {
   APP_ID,
   ApplicationModule,
@@ -16,14 +16,22 @@ import {
   ChangeDetectorRef,
   Console,
   DEFAULT_CURRENCY_CODE,
+  DOCUMENT,
+  DestroyRef,
   Directive,
+  ENVIRONMENT_INITIALIZER,
   ElementRef,
+  ErrorHandler,
   Host,
   IMAGE_CONFIG,
   IMAGE_CONFIG_DEFAULTS,
+  INJECTOR_SCOPE,
+  INTERNAL_APPLICATION_ERROR_HANDLER,
   IS_ENABLED_BLOCKING_INITIAL_NAVIGATION,
   Inject,
   Injectable,
+  InjectionToken,
+  Injector,
   Input,
   IterableDiffers,
   KeyValueDiffers,
@@ -31,6 +39,7 @@ import {
   LocaleDataIndex,
   NgModule,
   NgModuleRef$1,
+  NgZone,
   Optional,
   PLATFORM_ID,
   PLATFORM_INITIALIZER,
@@ -38,14 +47,21 @@ import {
   Renderer2,
   RendererFactory2,
   RendererStyleFlags2,
+  RuntimeError,
   SecurityContext,
+  Subject,
   TESTABILITY,
   TESTABILITY_GETTER,
   TemplateRef,
   Testability,
   TracingService,
+  Version,
   ViewContainerRef,
   ViewEncapsulation,
+  XSS_SECURITY_URL,
+  __spreadProps,
+  __spreadValues,
+  _global,
   _sanitizeHtml,
   _sanitizeUrl,
   allLeavingAnimations,
@@ -59,17 +75,23 @@ import {
   createNgModule,
   createPlatformFactory,
   findLocaleData,
+  formatRuntimeError,
+  forwardRef,
   getLocalePluralCase,
+  inject,
   internalCreateApplication,
   isPromise,
   isSignal,
   isSubscribable,
+  makeEnvironmentProviders,
   numberAttribute,
   performanceMarkFeature,
   platformCore,
   provideStabilityDebugging,
   setClassMetadata,
   setDocument,
+  stringify,
+  untracked,
   unwrapSafeValue,
   withDomHydration,
   withEventReplay,
@@ -77,42 +99,16 @@ import {
   withIncrementalHydration,
   ɵɵNgOnChangesFeature,
   ɵɵdefineDirective,
+  ɵɵdefineInjectable,
+  ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵdefinePipe,
   ɵɵdirectiveInject,
   ɵɵgetInheritedFactory,
+  ɵɵinject,
   ɵɵinjectAttribute,
   ɵɵstyleProp
-} from "./chunk-ZAKR7ID6.js";
-import {
-  DOCUMENT,
-  DestroyRef,
-  ENVIRONMENT_INITIALIZER,
-  ErrorHandler,
-  INJECTOR_SCOPE,
-  INTERNAL_APPLICATION_ERROR_HANDLER,
-  InjectionToken,
-  Injector,
-  NgZone,
-  RuntimeError,
-  Version,
-  XSS_SECURITY_URL,
-  _global,
-  formatRuntimeError,
-  forwardRef,
-  inject,
-  makeEnvironmentProviders,
-  stringify,
-  untracked,
-  ɵɵdefineInjectable,
-  ɵɵdefineInjector,
-  ɵɵinject
-} from "./chunk-FYFODLCE.js";
-import {
-  Subject,
-  __spreadProps,
-  __spreadValues
-} from "./chunk-PJVWDKLX.js";
+} from "./chunk-YEPWIHIR.js";
 
 // node_modules/@angular/common/fesm2022/_location-chunk.mjs
 function joinWithSlash(start, end) {
@@ -6201,4 +6197,4 @@ export {
   provideClientHydration,
   VERSION2 as VERSION
 };
-//# sourceMappingURL=chunk-DR6LJPUT.js.map
+//# sourceMappingURL=chunk-BMXFHS4F.js.map

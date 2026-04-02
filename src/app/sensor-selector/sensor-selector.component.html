@@ -11,3 +11,13 @@
         </li>
     }
 </ul>
+
+<div> high </div>
+<input type="number" value="{{highTemperature()}}" (click)="UpdateHighTemperature($any($event).target.value)">
+
+<div> low </div>
+<input type="number" value="{{lowTemperature()}}" (click)="UpdateLowTemperature($any($event).target.value)">
+
+
+
+

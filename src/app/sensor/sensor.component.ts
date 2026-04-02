@@ -1,5 +1,6 @@
-import { Component, signal, input  } from '@angular/core';
+import { Component, Signal, input,computed  } from '@angular/core';
 import { ISensor } from '../Sensor.model';
+import { SensorsService } from '../sensors.service';
 
 @Component({
   selector: 'app-sensor',
@@ -10,22 +11,10 @@ import { ISensor } from '../Sensor.model';
 export class SensorComponent {
   sensor = input.required<ISensor>();
 
-  constructor() {
+  sensorStatus : Signal<String>;
 
+  constructor(private sensorsService: SensorsService) {
+    this.sensorStatus = computed(() => this.sensorsService.getStatus(this.sensor().temperature));
   }
 
-  getStatus()
-  {
-    if(this.sensor().temperature < 22)
-    {
-      return "COLD"
-    }
-    else if(this.sensor().temperature < 35)
-    {
-      return "WARM"
-    }
-    else{
-      return "HOT"
-    }
-  }
 }

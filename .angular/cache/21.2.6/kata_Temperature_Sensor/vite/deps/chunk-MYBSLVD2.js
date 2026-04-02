@@ -1,52 +1,48 @@
 import {
   APP_BOOTSTRAP_LISTENER,
   ApplicationRef,
-  Inject,
-  Injectable,
-  NgModule,
-  TracingService,
-  TransferState,
-  makeStateKey,
-  performanceMarkFeature,
-  setClassMetadata,
-  ɵɵdefineNgModule
-} from "./chunk-ZAKR7ID6.js";
-import {
   DOCUMENT,
   DestroyRef,
   EnvironmentInjector,
+  Inject,
+  Injectable,
   InjectionToken,
   Injector,
+  NgModule,
   NgZone,
+  Observable,
   PendingTasks,
   ResourceImpl,
   RuntimeError,
+  TracingService,
+  TransferState,
+  __objRest,
+  __spreadProps,
+  __spreadValues,
   assertInInjectionContext,
   computed,
+  concatMap,
   encapsulateResourceError,
+  filter,
+  finalize,
   formatRuntimeError,
   inject,
   linkedSignal,
   makeEnvironmentProviders,
+  makeStateKey,
+  map,
+  of,
+  performanceMarkFeature,
   runInInjectionContext,
+  setClassMetadata,
   signal,
+  switchMap,
   truncateMiddle,
   ɵɵdefineInjectable,
   ɵɵdefineInjector,
+  ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-FYFODLCE.js";
-import {
-  Observable,
-  __objRest,
-  __spreadProps,
-  __spreadValues,
-  concatMap,
-  filter,
-  finalize,
-  map,
-  of,
-  switchMap
-} from "./chunk-PJVWDKLX.js";
+} from "./chunk-YEPWIHIR.js";
 
 // node_modules/@angular/common/fesm2022/_xhr-chunk.mjs
 function parseCookieValue(cookieStr, name) {
@@ -2622,4 +2618,4 @@ export {
   withHttpTransferCache,
   httpResource
 };
-//# sourceMappingURL=chunk-OFTMQ4J5.js.map
+//# sourceMappingURL=chunk-MYBSLVD2.js.map

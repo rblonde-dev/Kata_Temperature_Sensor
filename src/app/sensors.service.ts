@@ -1,27 +1,57 @@
-import { Injectable, Signal, computed, signal } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { ISensor } from './Sensor.model';
-import { HttpClient, httpResource, HttpResourceRef } from '@angular/common/http';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { catchError, of } from 'rxjs';
+import { httpResource, HttpResourceRef } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class SensorsService {
-  private apiUrl = "http://localhost:5248/api/sensors";
-  /*private testsensors : Signal<ISensor[]>;
-  private sensorArray : ISensor[] =
-  [
-    {"id": 0, "temperature" : -5},
-    {"id": 1, "temperature" : -5}
-  ]*/
-  constructor(private http: HttpClient)
+
+  private sensorsResource : HttpResourceRef<ISensor[]> = httpResource(() => '/api/sensors', 
   {
+    defaultValue : []
+  });
+
+  LowTemperature = signal<number>(22);
+
+  highTemperature = signal<number>(35);
+
+  constructor()
+  {
+
     //this.testsensors = signal(this.sensorArray)
   }
+
   getSensors(){
-    return toSignal( this.http.get<ISensor[]>(this.apiUrl).pipe( 
-      catchError(() => of([]))),
-    {initialValue : []});
+    return  this.sensorsResource.value ;
   }
+
+  getStatus( temperature : number)
+  {
+    if(temperature < this.LowTemperature())
+    {
+      return "COLD";
+    }
+    else if(temperature < this.highTemperature())
+    {
+      return "WARM";
+    }
+    else
+    {
+      return "HOT";
+    }
+  }
+
+  setLowTemperature( low : number)
+  {
+    this.LowTemperature.set(low);
+  }
+
+  setHighTemperature( high : number)
+  {
+    this.highTemperature.set(high);
+  }
+
+
 }

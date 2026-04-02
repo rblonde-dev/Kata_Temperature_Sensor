@@ -1,0 +1,13 @@
+<!--<select>
+    <option value="1"> first sensor</option>
+</select>-->
+
+<ul>
+    @for(sensor of sensors(); track sensor.id)
+    {
+        <li>
+            <app-sensor [sensor]="sensor">
+            </app-sensor>
+        </li>
+    }
+</ul>

@@ -1,0 +1,6 @@
+@SensorApi_HostAddress = http://localhost:5248
+
+GET {{SensorApi_HostAddress}}/sensors/
+Accept: application/json
+
+###

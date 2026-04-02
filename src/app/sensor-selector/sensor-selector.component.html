@@ -1,22 +1,31 @@
 <!--<select>
     <option value="1"> first sensor</option>
 </select>-->
-
-<ul>
-    @for(sensor of sensors(); track sensor.id)
-    {
-        <li>
-            <app-sensor [sensor]="sensor">
-            </app-sensor>
-        </li>
-    }
-</ul>
-
+<div>
+    <h1> Temperature threshold:</h1>
 <div> high </div>
 <input type="number" value="{{highTemperature()}}" (click)="UpdateHighTemperature($any($event).target.value)">
 
 <div> low </div>
 <input type="number" value="{{lowTemperature()}}" (click)="UpdateLowTemperature($any($event).target.value)">
+</div>
+
+<div>
+    <h1>All Sensors:</h1>
+    <ul>
+        @for(sensor of sensors(); track sensor.id)
+        {
+            <li>
+                <app-sensor [sensor]="sensor">
+                </app-sensor>
+            </li>
+        }
+    </ul>
+</div>
+
+
+
+
 
 
 

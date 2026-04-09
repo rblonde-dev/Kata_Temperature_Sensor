@@ -1,0 +1,9 @@
+services:
+  sqlite:
+    image: sqlite
+    container_name: sqlite_container
+    ports:
+      - "8191:8191"
+    volumes:
+      - "./sqlite:/db"
+    command: ["tail", "-f", "/dev/null"]

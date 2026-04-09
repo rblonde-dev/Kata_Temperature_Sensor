@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { SensorSelectorComponent } from './sensor-selector/sensor-selector.component';
+import { SensorSelectorComponent } from './components/sensor-selector/sensor-selector.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: '/sensors', pathMatch: 'full'},

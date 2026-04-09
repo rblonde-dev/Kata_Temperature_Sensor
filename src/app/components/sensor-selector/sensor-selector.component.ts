@@ -1,7 +1,7 @@
 import { Component, ResourceStatus, Signal } from '@angular/core';
 import { SensorComponent } from '../sensor/sensor.component';
-import { SensorsService } from '../sensors.service';
-import { ISensor } from '../Sensor.model';
+import { SensorsService } from '../../services/sensors.service';
+import { ISensor } from '../../models/Sensor.model';
 
 @Component({
   selector: 'app-sensor-selector',

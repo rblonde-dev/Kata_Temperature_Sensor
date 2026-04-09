@@ -1,16 +1,38 @@
 using Microsoft.EntityFrameworkCore;
 using SensorApi.Controllers;
 using SensorApi.ApplicationDbContext;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 // Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+
 builder.Services.AddDbContext<SensorDbContext>(options =>
     options.UseSqlite(configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddControllers();
+
+var HealthCheckSvc = builder.Services.AddHealthChecks();
+
+// check if backend is running
+HealthCheckSvc.AddCheck(
+    name: "self-live",
+    check: () => HealthCheckResult.Healthy("Sensor API is running"),
+    tags: new[] {"live"}
+);
+
+// check if backend can serve requests
+HealthCheckSvc.AddCheck(
+    name: "self-ready",
+    check: () => HealthCheckResult.Healthy("Sensor API is ready to serve requests"),
+    tags: new[] {"ready"}
+);
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddOpenApi();
+
+
 
 var app = builder.Build();
 
@@ -22,9 +44,23 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseHealthChecks("/health", new HealthCheckOptions
+{
+    AllowCachingResponses = false,
+    Predicate = r => r.Tags.Contains("live"),
+});
+
+app.UseHealthChecks("/ready", new HealthCheckOptions
+{
+    AllowCachingResponses = false,
+    Predicate = r => r.Tags.Contains("ready"),
+});
+
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.Run();
 
 /*var summaries = new[]
 {
@@ -43,12 +79,9 @@ app.MapGet("/weatherforecast", () =>
         .ToArray();
     return forecast;
 })
-.WithName("GetWeatherForecast");*/
+.WithName("GetWeatherForecast");
 
-
-app.Run();
-
-/*record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 }*/

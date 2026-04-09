@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { ISensor } from './Sensor.model';
+import { ISensor } from '../models/Sensor.model';
 import { httpResource, HttpResourceRef } from '@angular/common/http';
 
 
@@ -19,8 +19,6 @@ export class SensorsService {
 
   constructor()
   {
-
-    //this.testsensors = signal(this.sensorArray)
   }
 
   getSensors(){

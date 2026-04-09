@@ -10,7 +10,7 @@
 <input type="number" value="{{lowTemperature()}}" (click)="UpdateLowTemperature($any($event).target.value)">
 </div>
 
-<div>
+<div class="sensor-list">
     <h1>All Sensors:</h1>
     <ul>
         @for(sensor of sensors(); track sensor.id)

@@ -1,6 +1,6 @@
 import { Component, Signal, input,computed  } from '@angular/core';
-import { ISensor } from '../Sensor.model';
-import { SensorsService } from '../sensors.service';
+import { ISensor } from '../../models/Sensor.model';
+import { SensorsService } from '../../services/sensors.service';
 
 @Component({
   selector: 'app-sensor',
